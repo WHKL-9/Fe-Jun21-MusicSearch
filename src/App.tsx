@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Home from "./components/Home";
-import SearchResults from "./components/SearchResults";
+import Details from "./components/Details";
 
 function App() {
   return (
@@ -22,11 +22,13 @@ function App() {
           exact
           path="/home"
           render={(routerProps) => <Home {...routerProps} />}
-        />{" "}
+        /><Route
+        exact
+        path="/details/:id"
+        render={(routerProps) => <Details {...routerProps} />}
+      />
       </Switch>
-      <SearchResults title ="Avicii"/>
-      <SearchResults title ="The Weekend"/>
-      <SearchResults title ="Empire of The Sun"/>
+      
     </Router>
   );
 }

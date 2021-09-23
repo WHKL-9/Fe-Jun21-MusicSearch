@@ -1,6 +1,8 @@
 import React from "react";
 import { Jumbotron, Container } from "react-bootstrap";
 import { RouteComponentProps } from "react-router-dom";
+import SearchResults from "./SearchResults";
+
 
 export default function Home({
   location,
@@ -15,6 +17,9 @@ export default function Home({
           <p>🎷 | 🎸 | 🎹 | 🎺 | 🎻 | 🥁 </p>
         </Container>
       </Jumbotron>
+      <SearchResults title ="Avicii"/>
+      <SearchResults title ="The Weekend"/>
+      <SearchResults title ="Empire of The Sun"/>
     </>
   );
 }

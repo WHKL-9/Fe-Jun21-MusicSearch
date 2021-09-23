@@ -11,15 +11,15 @@ interface Music {
   title: string;
   link: string;
   artist: {
-    id: string;
-    name: string;
-    [picture: string]: string;
+    // id: string;
+    // name: string;
+    [picture_small: string]: string;
   };
   album: {
     id: string;
     title: string;
     name: string;
-    [picture: string]: string;
+    [picture_big: string]: string;
   };
 }
 
@@ -34,6 +34,7 @@ const SearchResults = ({ title }: TitleProps) => {
       if (response.ok) {
         let fetchedMusic = await response.json();
         setData(fetchedMusic.data);
+        // console.log(data[0].artist.picture_big)
       }
     };
     fetchData();
@@ -42,12 +43,15 @@ const SearchResults = ({ title }: TitleProps) => {
   return (
     <Container fluid>
       <h3>{title}</h3>
-      <img src={data[0].artist.picture}></img>
+      {/* <img src={data[0].artist.picture_big}></img> */}
       <Row>
         <Col xs={12} sm={6} lg={4}>
           <ul>
             {data.slice(0, 10).map((track) => (
-              <li key={track.id}>{track.title}</li>
+              <div key={track.id}>
+                  <img src={track.artist.picture_small}/>
+                <li >{track.title}</li>
+              </div>
             ))}
           </ul>
         </Col>
